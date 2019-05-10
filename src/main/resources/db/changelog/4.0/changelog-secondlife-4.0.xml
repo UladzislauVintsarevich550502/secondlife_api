@@ -5,9 +5,6 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
-    <include file="1.0/changelog-secondlife-1.0.xml" relativeToChangelogFile="true"/>
-    <include file="2.0/changelog-secondlife-2.0.xml" relativeToChangelogFile="true"/>
-    <include file="3.0/changelog-secondlife-3.0.xml" relativeToChangelogFile="true"/>
-    <include file="4.0/changelog-secondlife-4.0.xml" relativeToChangelogFile="true"/>
+    <include file="changelog-secondlife-SL-0004.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

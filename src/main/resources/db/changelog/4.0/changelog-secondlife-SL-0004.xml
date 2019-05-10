@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="2019-05-11-00-30-00" author="VladVintsarevich">
+        <loadData file="db/changelog/4.0/data/doctor.csv" separator=";" tableName="doctor"/>
+        <loadData file="db/changelog/4.0/data/condition.csv" separator=";" tableName="condition"/>
+        <loadData file="db/changelog/4.0/data/disease.csv" separator=";" tableName="disease"/>
+        <loadData file="db/changelog/4.0/data/disease_condition.csv" separator=";" tableName="disease_condition"/>
+        <loadData file="db/changelog/4.0/data/disease_stage.csv" separator=";" tableName="disease_stage"/>
+        <loadData file="db/changelog/4.0/data/disease_stage_condition.csv" separator=";" tableName="disease_stage_condition"/>
+
+        <sql>
+            SELECT setval('doctor_id_seq', (SELECT max(id) FROM doctor));
+            SELECT setval('condition_id_seq', (SELECT max(id) FROM condition));
+            SELECT setval('disease_id_seq', (SELECT max(id) FROM disease));
+            SELECT setval('disease_condition_id_seq', (SELECT max(id) FROM disease_condition));
+            SELECT setval('disease_stage_id_seq', (SELECT max(id) FROM disease_stage));
+            SELECT setval('disease_stage_condition_id_seq', (SELECT max(id) FROM disease_stage_condition));
+        </sql>
+    </changeSet>
+</databaseChangeLog>

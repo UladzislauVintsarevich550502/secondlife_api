@@ -1,0 +1,5 @@
+id;name;negative;type
+1;Carcinoma Condition;false;DISEASE_CONDITION
+2;Squamous Cell Carcinoma Condition;false;DISEASE_CONDITION
+3;Adenocarcinoma Condition;false;DISEASE_CONDITION
+4;Adenosquamous Carcinoma Condition;false;DISEASE_CONDITION
