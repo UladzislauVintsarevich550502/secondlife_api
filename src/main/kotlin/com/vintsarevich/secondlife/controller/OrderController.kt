@@ -11,6 +11,15 @@ final class OrderController(
     @GetMapping
     fun getAllOrders() = orderService.getAllOrders()
 
-    @PostMapping
-    fun startNewOrder(@RequestParam name: String, @RequestParam doctor: String) = orderService.startNewOrder(name, doctor)
+    @GetMapping("/new")
+    fun startNewOrder(@RequestParam name: String, @RequestParam doctor: String) =
+        orderService.startNewOrder(name, doctor)
+
+    @PutMapping("/survey/disease")
+    fun addDiseaseToOrder(@RequestParam orderId: Long, @RequestParam diseaseId: Long) =
+        orderService.addDiseaseToOrder(orderId, diseaseId)
+
+    @PutMapping("/survey/disease_stage")
+    fun addDiseaseStageToOrder(@RequestParam orderId: Long, @RequestParam diseaseStageId: Long) =
+        orderService.addDiseaseStageToOrder(orderId, diseaseStageId)
 }

@@ -19,5 +19,9 @@ data class Order(
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    var status: OrderStatus
+    var status: OrderStatus,
+
+    @OneToOne
+    @JoinColumn(name = "survey_id")
+    var survey: Survey?
 ) : AbstractEntity()

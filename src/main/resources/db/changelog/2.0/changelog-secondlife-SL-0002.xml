@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="2019-05-09-20-34-00" author="VladVintsarevich">
+        <createTable tableName="condition">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="condition_pkey" nullable="false"/>
+            </column>
+            <column name="negative" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="type" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2019-05-09-20-58-00" author="VladVintsarevich">
+        <createTable tableName="disease">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="disease_pkey" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="disease_condition">
+            <column name="disease_id" type="bigint">
+                <constraints foreignKeyName="fk_disease_condition_disease" referencedTableName="disease"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="condition_id" type="bigint">
+                <constraints foreignKeyName="fk_disease_condition_condition" referencedTableName="condition"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2019-05-10-00-16-00" author="VladVintsarevich">
+        <createTable tableName="survey">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="survey_pkey" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="disease_id" type="bigint">
+                <constraints foreignKeyName="fk_survey_disease_id" referencedTableName="disease"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+
+        <addColumn tableName="order">
+            <column name="survey_id" type="bigint">
+                <constraints foreignKeyName="fk_order_survey_id" referencedTableName="survey"
+                             referencedColumnNames="id"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

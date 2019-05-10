@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="2019-05-09-20-58-00" author="VladVintsarevich">
+        <createTable tableName="disease_stage">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="disease_stage_pkey" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="disease_stage_condition">
+            <column name="disease_stage_id" type="bigint">
+                <constraints foreignKeyName="fk_disease_stage_condition_disease_stage" referencedTableName="disease_stage"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="condition_id" type="bigint">
+                <constraints foreignKeyName="fk_disease_stage_condition_condition" referencedTableName="condition"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+
+
+        <addColumn tableName="survey">
+            <column name="disease_stage_id" type="bigint">
+                <constraints foreignKeyName="fk_survey_disease_stage_id" referencedTableName="disease_stage"
+                             referencedColumnNames="id"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
