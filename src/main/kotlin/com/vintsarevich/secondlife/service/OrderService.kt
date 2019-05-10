@@ -14,6 +14,7 @@ class OrderService(
     private val doctorService: DoctorService,
     private val diseaseService: DiseaseService,
     private val diseaseStageService: DiseaseStageService,
+    private val surveyService: SurveyService,
     private val mapper: Mapper
 ) {
 
@@ -24,13 +25,14 @@ class OrderService(
     fun startNewOrder(name: String, doctor: String): Long {
         var order = orderRepository.findByName(name)
         if (order == null) {
+            val survey = surveyService.createNewSurvey(Survey("$name survey", null, null))
             order = orderRepository.save(
                 Order(
                     name,
                     null,
                     doctorService.findDoctorByUsername(doctor),
-                    OrderStatus.ORDER_START,
-                    Survey("$name survey", null, null)
+                    OrderStatus.ORDER_START, survey
+
                 )
             )
         }
@@ -42,6 +44,8 @@ class OrderService(
         val disease = diseaseService.getDiseaseById(diseaseId)
 
         order.survey!!.disease = disease
+
+        orderRepository.save(order)
     }
 
     fun addDiseaseStageToOrder(orderId: Long, diseaseStageId: Long) {
@@ -49,6 +53,8 @@ class OrderService(
         val diseaseStage = diseaseStageService.getDiseaseStageById(diseaseStageId)
 
         order.survey!!.diseaseStage = diseaseStage
+
+        orderRepository.save(order)
     }
 
     fun getOrderById(orderId: Long): Order {
