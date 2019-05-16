@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="2019-05-12-01-06-00" author="VladVintsarevich">
+        <loadData file="db/changelog/6.0/data/therapy.csv" separator=";" tableName="therapy"/>
+        <loadData file="db/changelog/6.0/data/therapy_condition.csv" separator=";" tableName="therapy_condition"/>
+        <loadData file="db/changelog/6.0/data/test_recommendation.csv" separator=";" tableName="test_recommendation"/>
+        <loadData file="db/changelog/6.0/data/test_recommendation_condition.csv" separator=";" tableName="test_recommendation_condition"/>
+        <loadData file="db/changelog/6.0/data/lab.csv" separator=";" tableName="lab"/>
+        <loadData file="db/changelog/6.0/data/lab_condition.csv" separator=";" tableName="lab_condition"/>
+
+        <sql>
+            SELECT setval('therapy_id_seq', (SELECT max(id) FROM therapy));
+            SELECT setval('therapy_condition_id_seq', (SELECT max(id) FROM therapy_condition));
+            SELECT setval('test_recommendation_id_seq', (SELECT max(id) FROM test_recommendation));
+            SELECT setval('test_recommendation_condition_id_seq', (SELECT max(id) FROM test_recommendation_condition));
+            SELECT setval('lab_id_seq', (SELECT max(id) FROM lab));
+            SELECT setval('lab_condition_id_seq', (SELECT max(id) FROM lab_condition));
+        </sql>
+    </changeSet>
+</databaseChangeLog>

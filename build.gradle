@@ -24,6 +24,9 @@ dependencies {
 	implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 	implementation 'org.liquibase:liquibase-core'
 	implementation 'org.postgresql:postgresql'
+	compile group: 'javax.mail', name: 'mail', version: '1.4.7'
+	compile "org.apache.xmlgraphics:fop:2.3"
+	compile "org.apache.pdfbox:pdfbox:2.0.12"
 	compile "ma.glasnost.orika:orika-core:1.5.2"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }

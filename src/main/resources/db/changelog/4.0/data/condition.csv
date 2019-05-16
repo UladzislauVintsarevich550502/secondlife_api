@@ -1,5 +1,32 @@
 id;name;negative;type
 1;Carcinoma Condition;false;DISEASE_CONDITION
-2;Squamous Cell Carcinoma Condition;false;DISEASE_CONDITION
-3;Adenocarcinoma Condition;false;DISEASE_CONDITION
-4;Adenosquamous Carcinoma Condition;false;DISEASE_CONDITION
+2;Sarcoma Condition;false;DISEASE_CONDITION
+3;Other Condition;false;DISEASE_CONDITION
+4;Early/Limited Stage;false;DISEASE_STAGE_CONDITION
+5;Early/Limited Stage negative;true;DISEASE_STAGE_CONDITION
+6;Advanced Metastatic;false;DISEASE_STAGE_CONDITION
+7;Advanced Metastatic negative;true;DISEASE_STAGE_CONDITION
+8;Stage I/II;false;DISEASE_STAGE_CONDITION
+9;Stage I/II negative;true;DISEASE_STAGE_CONDITION
+10;Stage III researchable;false;DISEASE_STAGE_CONDITION
+11;Stage III researchable negative;true;DISEASE_STAGE_CONDITION
+12;Stage IV;false;DISEASE_STAGE_CONDITION
+13;Stage IV negative;true;DISEASE_STAGE_CONDITION
+14;Chemotherapy Condition;false;THERAPY_CONDITION
+15;Radiation Condition;false;THERAPY_CONDITION
+16;Surgery Condition;false;THERAPY_CONDITION
+17;Palliative Care Condition;false;THERAPY_CONDITION
+18;Immunotherapy Condition;false;THERAPY_CONDITION
+19;Laser therapy Condition;false;THERAPY_CONDITION
+20;Other therapy Condition;false;THERAPY_CONDITION
+21;One P 19 Q Condition;false;TEST_RECOMMENDATION_CONDITION
+22;ALK Rearrangement Condition;false;TEST_RECOMMENDATION_CONDITION
+23;BRAF Mutation Genotype Condition;false;TEST_RECOMMENDATION_CONDITION
+24;EGFR Mutation Genotype Condition;false;TEST_RECOMMENDATION_CONDITION
+25;MSI Or MMR Testing Condition;false;TEST_RECOMMENDATION_CONDITION
+26;MSI Testing Condition;false;TEST_RECOMMENDATION_CONDITION
+27;MMR Testing Condition;false;TEST_RECOMMENDATION_CONDITION
+28;BRCA1 Germaine Condition;false;TEST_RECOMMENDATION_CONDITION
+29;BRCA2 Germaine Condition;false;TEST_RECOMMENDATION_CONDITION
+30;HER2 Condition;false;TEST_RECOMMENDATION_CONDITION
+31;PD-L1 By INC Condition;false;TEST_RECOMMENDATION_CONDITION

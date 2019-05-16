@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:fo="http://www.w3.org/1999/XSL/Format"
+                exclude-result-prefixes="fo">
+    <xsl:template match="reportXmlDto">
+        <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format" font-family="TimesNewRoman">
+            <fo:layout-master-set>
+                <fo:simple-page-master master-name="A4-portrail" page-height="29.7cm" page-width="21cm"
+                                       margin-top="1.3cm" margin-bottom="0.8cm" margin-left="1.3cm"
+                                       margin-right="1.5cm">
+                    <fo:region-body margin-bottom=".5in"/>
+                    <fo:region-after region-name="xsl-region-after" extent=".5in"/>
+                </fo:simple-page-master>
+            </fo:layout-master-set>
+            <fo:page-sequence master-reference="A4-portrail">
+                <fo:flow flow-name="xsl-region-body">
+                    <fo:table table-layout="fixed">
+                        <fo:table-body>
+                            <fo:table-row>
+                                <fo:table-cell width="10.395cm" font-size="10" font-weight="bold">
+                                    <fo:block white-space-treatment="preserve">
+                                        <xsl:value-of select="doctorName"/>
+                                        <fo:block/>
+                                        <xsl:value-of select="doctorEmail"/>
+                                        <fo:block/>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-body>
+                    </fo:table>
+                    <fo:block>
+                        <fo:leader/>
+                    </fo:block>
+                    <fo:table border-color="black" table-layout="fixed" width="100%">
+                        <fo:table-column column-width="33.33%"/>
+                        <fo:table-column column-width="33.33%"/>
+                        <fo:table-column column-width="33.33%"/>
+                        <fo:table-body>
+                            <fo:table-row>
+                                <fo:table-cell border-bottom-width="2px" border-top-width="2px" border-style="solid"
+                                               background-color="#e7e5ea"
+                                               padding="2.5px" number-columns-spanned="3">
+                                    <fo:block font-size="10" font-weight="700">
+                                        Order Information
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                            <fo:table-row>
+                                <fo:table-cell border-width="1px" border-style="solid" padding="2.5px"
+                                               number-columns-spanned="3">
+                                    <fo:block font-size="10">
+                                        Lab name:
+                                        <xsl:value-of select="labName"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                            <fo:table-row>
+                                <fo:table-cell border-width="1px" border-style="solid" padding="2.5px"
+                                               number-columns-spanned="3">
+                                    <fo:block font-size="10">
+                                        Lab email:
+                                        <xsl:value-of select="labEmail"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                            <fo:table-row>
+                                <fo:table-cell border-width="1px" border-style="solid" padding="2.5px"
+                                               number-columns-spanned="3">
+                                    <fo:block font-size="10">
+                                        Patient Date Of Birth:
+                                        <xsl:value-of select="birth"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                            <fo:table-row>
+                                <fo:table-cell border-width="1px" border-style="solid" padding="2.5px">
+                                    <fo:block font-size="10">
+                                        Patient Gender:
+                                        <xsl:value-of select="gender"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell border-width="1px" border-style="solid" padding="2.5px">
+                                    <fo:block font-size="10">
+                                        Patient First Name:
+                                        <xsl:value-of select="firstName"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell border-width="1px" border-style="solid" padding="2.5px">
+                                    <fo:block/>
+                                </fo:table-cell>
+                            </fo:table-row>
+                            <fo:table-row>
+                                <fo:table-cell border-width="1px" border-style="solid" padding="2.5px">
+                                    <fo:block font-size="10">
+                                        Patient Second Name:
+                                        <xsl:value-of select="secondName"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell border-width="1px" border-style="solid" padding="2.5px">
+                                    <fo:block font-size="10">
+                                        Address:
+                                        <xsl:value-of select="address"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell border-width="1px" border-style="solid" padding="2.5px">
+                                    <fo:block font-size="10">
+                                        Disease:
+                                        <xsl:value-of select="disease"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                            <fo:table-row>
+                                <fo:table-cell border-width="1px" border-style="solid" padding="2.5px"
+                                               number-columns-spanned="2">
+                                    <fo:block font-size="10">
+                                        Test Recommendation:
+                                        <xsl:value-of select="testRecommendation"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                                <fo:table-cell border-width="1px" border-style="solid" padding="2.5px">
+                                    <fo:block font-size="10">
+                                        Therapy:
+                                        <xsl:value-of select="therapy"/>
+                                    </fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-body>
+                    </fo:table>
+                </fo:flow>
+            </fo:page-sequence>
+        </fo:root>
+    </xsl:template>
+</xsl:stylesheet>

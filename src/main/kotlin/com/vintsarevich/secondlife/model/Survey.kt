@@ -17,5 +17,17 @@ data class Survey(
 
     @OneToOne
     @JoinColumn(name = "disease_stage_id")
-    var diseaseStage: DiseaseStage?
+    var diseaseStage: DiseaseStage?,
+
+    @OneToOne
+    @JoinColumn(name = "therapy_id")
+    var therapy: Therapy?,
+
+    @OneToOne
+    @JoinColumn(name = "test_recommendation_id")
+    var testRecommendation: TestRecommendation?,
+
+    @OneToOne
+    @JoinColumn(name = "lab_id")
+    var lab: Lab?
 ) : AbstractEntity()

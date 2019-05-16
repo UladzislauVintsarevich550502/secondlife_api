@@ -10,10 +10,6 @@ data class Order(
     var name: String,
 
     @OneToOne
-    @JoinColumn(name = "file_id")
-    var file: File?,
-
-    @OneToOne
     @JoinColumn(name = "doctor_id")
     var doctor: Doctor?,
 
@@ -23,5 +19,9 @@ data class Order(
 
     @OneToOne
     @JoinColumn(name = "survey_id")
-    var survey: Survey?
+    var survey: Survey?,
+
+    @OneToOne
+    @JoinColumn(name = "patient_id")
+    var patientInfo: PatientInfo?
 ) : AbstractEntity()

@@ -29,7 +29,6 @@
             </column>
         </createTable>
 
-
         <addColumn tableName="survey">
             <column name="disease_stage_id" type="bigint">
                 <constraints foreignKeyName="fk_survey_disease_stage_id" referencedTableName="disease_stage"

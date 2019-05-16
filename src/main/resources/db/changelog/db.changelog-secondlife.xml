@@ -9,5 +9,8 @@
     <include file="2.0/changelog-secondlife-2.0.xml" relativeToChangelogFile="true"/>
     <include file="3.0/changelog-secondlife-3.0.xml" relativeToChangelogFile="true"/>
     <include file="4.0/changelog-secondlife-4.0.xml" relativeToChangelogFile="true"/>
+    <include file="5.0/changelog-secondlife-5.0.xml" relativeToChangelogFile="true"/>
+    <include file="6.0/changelog-secondlife-6.0.xml" relativeToChangelogFile="true"/>
+    <include file="7.0/changelog-secondlife-7.0.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

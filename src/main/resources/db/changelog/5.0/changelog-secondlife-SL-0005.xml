@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="2019-05-12-00-52-00" author="VladVintsarevich">
+        <createTable tableName="therapy">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="therapy_pkey" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="therapy_condition">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="therapy_condition_pkey" nullable="false"/>
+            </column>
+            <column name="therapy_id" type="bigint">
+                <constraints foreignKeyName="fk_therapy_condition_therapy" referencedTableName="therapy"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="condition_id" type="bigint">
+                <constraints foreignKeyName="fk_therapy_condition_condition" referencedTableName="condition"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+
+        <addColumn tableName="survey">
+            <column name="therapy_id" type="bigint">
+                <constraints foreignKeyName="fk_survey_therapy_id" referencedTableName="therapy"
+                             referencedColumnNames="id"/>
+            </column>
+        </addColumn>
+
+        <createTable tableName="test_recommendation">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="test_recommendation_pkey" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="test_recommendation_condition">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="test_recommendation_condition_pkey" nullable="false"/>
+            </column>
+            <column name="test_recommendation_id" type="bigint">
+                <constraints foreignKeyName="fk_test_recommendation_condition_test_recommendation" referencedTableName="test_recommendation"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="condition_id" type="bigint">
+                <constraints foreignKeyName="fk_test_recommendation_condition_condition" referencedTableName="condition"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+
+        <addColumn tableName="survey">
+            <column name="test_recommendation_id" type="bigint">
+                <constraints foreignKeyName="fk_survey_test_recommendation_id" referencedTableName="test_recommendation"
+                             referencedColumnNames="id"/>
+            </column>
+        </addColumn>
+
+        <createTable tableName="lab">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="lab_pkey" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="email" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="lab_condition">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="lab_condition_pkey" nullable="false"/>
+            </column>
+            <column name="lab_id" type="bigint">
+                <constraints foreignKeyName="fk_lab_condition_lab" referencedTableName="lab"
+                             referencedColumnNames="id"/>
+            </column>
+            <column name="condition_id" type="bigint">
+                <constraints foreignKeyName="fk_lab_condition_condition" referencedTableName="condition"
+                             referencedColumnNames="id"/>
+            </column>
+        </createTable>
+
+        <addColumn tableName="survey">
+            <column name="lab_id" type="bigint">
+                <constraints foreignKeyName="fk_survey_lab_id" referencedTableName="lab"
+                             referencedColumnNames="id"/>
+            </column>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>
