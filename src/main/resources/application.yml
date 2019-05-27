@@ -4,9 +4,9 @@ spring:
   #    username: secondlife
   #    password: secondlife
   datasource:
-    url: jdbc:postgresql://localhost:5432/second_life
-    username: vlad
-    password: vlad
+    url: jdbc:postgresql://newsecondlife.cgt7boiuxgnm.us-east-2.rds.amazonaws.com:5432/secondlife
+    username: secondlife
+    password: secondlife
     platform: POSTGRESQL
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-secondlife.xml
@@ -22,4 +22,4 @@ spring:
 #        type: trace
 
 server:
-  port: 8080
+  port: 8081
