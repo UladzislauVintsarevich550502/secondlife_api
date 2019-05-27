@@ -1,12 +1,8 @@
 spring:
-  #  datasource:
-  #    url: jdbc:postgresql://secondlife.cgt7boiuxgnm.us-east-2.rds.amazonaws.com:5432/second_life
-  #    username: secondlife
-  #    password: secondlife
   datasource:
-    url: jdbc:postgresql://newsecondlife.cgt7boiuxgnm.us-east-2.rds.amazonaws.com:5432/secondlife
-    username: secondlife
-    password: secondlife
+    url: jdbc:postgresql://localhost:5432/second_life
+    username: vlad
+    password: vlad
     platform: POSTGRESQL
   liquibase:
     change-log: classpath:/db/changelog/db.changelog-secondlife.xml
@@ -16,10 +12,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-#        show_sql: true
-#        use_sql_comments: true
         temp.use_jdbc_metadata_defaults: false
-#        type: trace
 
 server:
   port: 8081
