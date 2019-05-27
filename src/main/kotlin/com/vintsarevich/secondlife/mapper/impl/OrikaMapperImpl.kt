@@ -1,6 +1,5 @@
 package com.vintsarevich.secondlife.mapper.impl
 
-import com.vintsarevich.secondlife.mapper.Mapper
 import com.vintsarevich.secondlife.mapper.OrikaMapperConfigurer
 import ma.glasnost.orika.MapperFacade
 import ma.glasnost.orika.converter.builtin.PassThroughConverter
@@ -10,6 +9,7 @@ import org.springframework.stereotype.Component
 import java.time.LocalDate
 import java.util.*
 import java.util.Collections.emptyList
+import java.util.stream.Collectors
 
 /**
  * Orika based mapper service implementation.
@@ -18,7 +18,7 @@ import java.util.Collections.emptyList
  * @author Alexey Kolenchenko
  */
 @Component
-class OrikaMapperImpl(@Autowired(required = false) configurers: List<OrikaMapperConfigurer>) : Mapper {
+class OrikaMapperImpl(@Autowired(required = false) configurers: List<OrikaMapperConfigurer>) {
 
     private val mapper: MapperFacade
 
@@ -31,12 +31,8 @@ class OrikaMapperImpl(@Autowired(required = false) configurers: List<OrikaMapper
         mapper = mapperFactory.mapperFacade
     }
 
-    override fun <S, D> map(source: S, destinationClass: Class<D>): D {
-        return mapper.map(source, destinationClass)
-    }
-
-    override fun <S, D> map(source: S, destination: D) {
-        mapper.map(source, destination)
+    fun <S, D> map(source: List<S>, destinationClass: Class<D>): List<D> {
+        return source.stream().map { `object` -> mapper.map(`object`, destinationClass) }.collect(Collectors.toList())
     }
 
 }

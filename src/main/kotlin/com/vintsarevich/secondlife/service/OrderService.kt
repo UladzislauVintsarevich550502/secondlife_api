@@ -2,7 +2,7 @@ package com.vintsarevich.secondlife.service
 
 import com.vintsarevich.secondlife.dto.DetailsDto
 import com.vintsarevich.secondlife.dto.OrderDto
-import com.vintsarevich.secondlife.mapper.Mapper
+import com.vintsarevich.secondlife.mapper.impl.OrikaMapperImpl
 import com.vintsarevich.secondlife.model.Order
 import com.vintsarevich.secondlife.model.OrderStatus
 import com.vintsarevich.secondlife.model.PatientInfo
@@ -22,7 +22,7 @@ class OrderService(
     private val patientInfoService: PatientInfoService,
     private val surveyService: SurveyService,
     private val fileService: FileService,
-    private val mapper: Mapper
+    private val mapper: OrikaMapperImpl
 ) {
 
     fun getAllOrders(): List<OrderDto> {
